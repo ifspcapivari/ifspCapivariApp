@@ -1,0 +1,12 @@
+<ion-view view-title="IFSP Capivari">
+    <ion-content>
+      <ion-list>
+        <ion-item ng-repeat="post in posts" href="#/app/home/{{post.id}}">
+          {{post.title.rendered}}
+        </ion-item>
+      </ion-list>
+    </ion-content>
+    <ion-footer-bar align-title="right" class="bar-balanced">
+        <span>IFSP Campus Capivari - www.ifspcapivari.com.br</span>
+    </ion-footer-bar>
+</ion-view>
