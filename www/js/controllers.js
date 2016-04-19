@@ -29,10 +29,22 @@ angular.module('starter.controllers', [])
     });    
 })
 
-.controller('SingleCtrl', function($scope, $http, $stateParams){
+.controller('PostCtrl', function($scope, $http, $stateParams){
     $http.get("http://www.ifspcapivari.com.br/wp-json/wp/v2/posts/" + $stateParams.postId)
     .success(function(response){
         $scope.post = response;
+        var rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g;
+        console.log(rex.exec(response.content.rendered));
+    })
+    .error(function(err){
+        console.log("Erro ao fazer a requisicao" + err);
+    })
+})
+
+.controller('PageCtrl', function($scope, $http, $stateParams){
+    $http.get("http://www.ifspcapivari.com.br/wp-json/wp/v2/pages/" + $stateParams.pageId)
+    .success(function(response){
+        $scope.page = response;
     })
     .error(function(err){
         console.log("Erro ao fazer a requisicao" + err);

@@ -42,15 +42,26 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
     })
     
-    .state('app.single', {
-        url: '/home/:postId',
+    .state('app.post', {
+        url: '/post/:postId',
         views: {
           'menuContent': {
-            templateUrl: 'templates/single.html',
-            controller: 'SingleCtrl'
+            templateUrl: 'templates/post.html',
+            controller: 'PostCtrl'
           }
         }
+    })
+    
+    .state('app.page', {
+        url: '/page/:pageId',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/page.html',
+                controller: 'PageCtrl'
+            }
+        }
     });
+    
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/home');
 });
