@@ -11,14 +11,15 @@ angular.module('starter.controllers', [])
 })
 
 .controller('HomeCtrl', function($scope, $http, $ionicLoading){  
-    $ionicLoading.show({
+    /**
+	$ionicLoading.show({
         content: 'Loading',
         animation: 'fade-in',
         showBackdrop: true,
         maxWidth: 200,
         showDelay: 0
     });
-    
+    */
     $http.get("http://www.ifspcapivari.com.br/wp-json/wp/v2/posts/?per_page=5")
     .success(function(response){
         $scope.posts = response;
@@ -33,8 +34,6 @@ angular.module('starter.controllers', [])
     $http.get("http://www.ifspcapivari.com.br/wp-json/wp/v2/posts/" + $stateParams.postId)
     .success(function(response){
         $scope.post = response;
-        var rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g;
-        console.log(rex.exec(response.content.rendered));
     })
     .error(function(err){
         console.log("Erro ao fazer a requisicao" + err);
